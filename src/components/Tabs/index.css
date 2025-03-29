@@ -1,0 +1,36 @@
+.tab-container {
+  width: 100%;
+  
+}
+
+.list-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style-type: none;
+  width: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 15px;
+}
+
+.item {
+  font-family: 'Roboto';
+  font-size: 16px;
+  background: transparent;
+  border: 0px none;
+  width: 100%;
+}
+
+@media screen and (min-width: 650px) {
+  .item {
+    font-size: 18px;
+  }
+}
+
+.isActive {
+  color: #f74b45;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 2px solid #f74b45;
+}

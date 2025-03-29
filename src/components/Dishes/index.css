@@ -1,0 +1,12 @@
+.tab-unordered-list {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #f2f5f5;
+  width: 100%;
+  padding-left: 0px;
+  overflow: auto;
+}
+
+.dishes-unordered-list {
+  padding-left: 0px;
+}

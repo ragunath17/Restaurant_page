@@ -1,0 +1,147 @@
+.dishesListItem-bg-container {
+  border: 1px solid #e6e8e6;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 7px;
+}
+@media screen and (min-width: 650px) {
+  .dishesListItem-bg-container {
+    margin: 20px;
+    padding: 15px;
+  }
+}
+
+.dishes-list-item {
+  list-style-type: none;
+  line-height: 1.1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dish-info-with-icon {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+}
+
+.dish-name {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 800;
+}
+@media screen and (min-width: 650px) {
+  .dish-name {
+    font-size: 24px;
+  }
+}
+
+.dish-price-card {
+  display: flex;
+  flex-direction: row;
+  line-height: 1.1;
+}
+
+.dish-currency {
+  font-family: 'Roboto';
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.dish-price {
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+.dish-description {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #8c8b89;
+}
+@media screen and (min-width: 650px) {
+  .dish-description {
+    font-size: 22px;
+  }
+}
+
+.btn-container {
+  background-color: #05961a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.arrow-btn {
+  background-color: transparent;
+  border: 0px none;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 18px;
+}
+
+.number {
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.addonCat {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: blue;
+}
+
+.dish-calories {
+  font-family: 'Roboto';
+  font-size: 16px;
+  margin-left: 8px;
+  color: #fc9342;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  height: 100%;
+}
+@media screen and (min-width: 650px) {
+  .dish-calories {
+    font-size: 18px;
+  }
+}
+
+.dish-img {
+  height: 100px;
+  width: 100px;
+  margin-left: 8px;
+  display: flex;
+  align-self: flex-start;
+}
+@media screen and (min-width: 650px) {
+  .dish-img {
+    height: 200px;
+    width: 200px;
+    align-self: center;
+  }
+}
+
+.not-applicable {
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: red;
+}
+
+.dish-type-icon-card {
+  margin-right: 10px;
+}
+
+.dish-type-icon2 {
+  color: green;
+}
+
+.dish-type-icon1 {
+  color: darkred;
+}
