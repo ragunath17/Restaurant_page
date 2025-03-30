@@ -10,14 +10,13 @@ const Tabs = props => {
   }
 
   return (
-    <li className="list-items">
+    <li className="list-items" key={menuCategory}>
       <button
         type="button"
         className={`item ${activeClassname}`}
         onClick={onClickTabItem}
-        key={menuCategory}
       >
-        {menuCategory}
+        <p className="menu">{menuCategory}</p>
       </button>
     </li>
   )

@@ -1,8 +1,8 @@
 .tab-unordered-list {
   display: flex;
   flex-direction: row;
-  border-bottom: 2px solid #f2f5f5;
   width: 100%;
+  border-bottom: 2px solid #edf2ef;
   padding-left: 0px;
   overflow: auto;
 }
