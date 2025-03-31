@@ -2,11 +2,11 @@ import {HiOutlineShoppingCart} from 'react-icons/hi'
 import './index.css'
 
 const Header = props => {
-  const {count} = props
+  const {count, restaurantName} = props
 
   return (
     <div className="heading-bg-container">
-      <h1 className="heading">UNI Resto Cafe</h1>
+      <h1 className="heading">{restaurantName}</h1>
       <div className="order-container">
         <p className="order">My Orders</p>
         <div className="count-container">

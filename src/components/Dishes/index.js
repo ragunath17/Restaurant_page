@@ -1,18 +1,27 @@
 import {Component} from 'react'
-
+import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import Tabs from '../Tabs'
 import DishesListItem from '../DishesListItem'
 
 import './index.css'
 
+const apiStatus = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  in_progress: 'IN_PROGRESS',
+}
+
 class Dishes extends Component {
   state = {
+    apiStatusConstants: apiStatus.initial,
     menuCategories: [],
     activeCategory: '',
     dishes: [],
     cartCount: 0,
     dishCounts: {},
+    restaurantName: '',
   }
 
   componentDidMount = () => {
@@ -20,20 +29,28 @@ class Dishes extends Component {
   }
 
   getDishesInfo = async () => {
+    this.setState({apiStatusConstants: apiStatus.in_progress})
+
     const url =
       'https://apis2.ccbp.in/restaurant-app/restaurant-menu-list-details'
 
     const response = await fetch(url)
     if (response.ok) {
       const data = await response.json()
-
+      console.log(data)
       const updatedCategoryDishes = data[0].table_menu_list.map(item => item)
+      const restaurantName = data[0].restaurant_name
+      console.log(restaurantName)
 
       this.setState({
         menuCategories: data[0].table_menu_list,
         activeCategory: data[0].table_menu_list[0].menu_category,
         dishes: updatedCategoryDishes,
+        restaurantName,
+        apiStatusConstants: apiStatus.success,
       })
+    } else {
+      this.setState({apiStatusConstants: apiStatus.failure})
     }
   }
 
@@ -130,16 +147,45 @@ class Dishes extends Component {
     )
   }
 
-  render() {
-    const {cartCount} = this.state
-
+  renderSuccessView = () => {
+    const {cartCount, restaurantName} = this.state
     return (
       <div>
-        <Header count={cartCount} />
+        <Header count={cartCount} restaurantName={restaurantName} />
         {this.renderTabList()}
         {this.renderDishListView()}
       </div>
     )
+  }
+
+  renderFailureView = () => (
+    <div className="failure-view-container">
+      <h1>Sorry, Something went wrong</h1>
+    </div>
+  )
+
+  renderLoaderView = () => (
+    <div className="loader-view-contianer" data-testid="loader">
+      <Loader type="ThreeDots" color="blue" height={25} width={25} />
+    </div>
+  )
+
+  renderAllViews = () => {
+    const {apiStatusConstants} = this.state
+    switch (apiStatusConstants) {
+      case apiStatus.success:
+        return this.renderSuccessView()
+      case apiStatus.in_progress:
+        return this.renderLoaderView()
+      case apiStatus.failure:
+        return this.renderFailureView()
+      default:
+        return null
+    }
+  }
+
+  render() {
+    return this.renderAllViews()
   }
 }
 
